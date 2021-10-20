@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2cy@7#a9m@7ngreotyh4q4@4hz3+l%o7h8r$zuqyat^)2t1)+x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -73,13 +73,22 @@ WSGI_APPLICATION = 'aphina.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgressql_psycopg2',
+        'NAME': 'prod_db',
+        'USER': 'admin',
+        'PASSWORD': 'devpass',
+        'HOST': '127.0.0.1',
+        'PORT': 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
